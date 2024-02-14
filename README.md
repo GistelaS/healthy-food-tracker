@@ -1,4 +1,5 @@
 # Healthy Food Tracker
+## Tugas 2
 - ### Membuat sebuah proyek Django baru
 
     a. Langkah pertama adalah saya membuat          direktori baru yang bernama healthy-food-tracker pada komputer saya lalu saya membuka command prompt dan membuat virtual environment dengan perintah 
@@ -173,6 +174,144 @@ D. Jelaskan apakah itu MVC, MVT, MVVM dan perbedaan dari ketiganya.
     - MVT: Mirip dengan MVC, tetapi menggunakan template untuk tampilan.
     - MVVM: ViewModel memanipulasi data sebelum ditampilkan di view.
 
+## Tugas 3
+
+- ### Membuat input form untuk menambahkan objek model pada app sebelumnya.
+
+   Pertama saya menambahkan file baru pada direktori utama saya yang bernama base.html yang diisi dengan kode berikut :
+   ```
+      {% load static %}
+   <!DOCTYPE html>
+   <html lang="en">
+      <head>
+         <meta charset="UTF-8" />
+         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      {% block meta %} {% endblock meta %}
+      </head>
+
+      <body>
+      {% block content %} {% endblock content %}
+      </body>
+   </html> 
+   ```
+
+
+   Setelah itu saya membuka settings.py yang ada pada direktori templates di direktori healthy_food_tracker dan mengubah sebagian menjadi kode berikut :
+   ```
+   TEMPLATES = [
+      {
+         'BACKEND': 'django.template.backends.django DjangoTemplates',
+         'DIRS': [BASE_DIR / 'templates'], # Tambahkan konten baris ini
+         'APP_DIRS': True,
+         ...
+      }
+   ]
+   ```
+
+   Langkah selanjutnya saya menambah file baru dan memasukkannya ke direktori main melalu visual studio code dan mengisi dengan kode berikut :
+   ```
+   from django.forms import ModelForm
+   from main.models import Food
+
+   class FoodFormBookForm(ModelForm):
+      class Meta:
+        model = Food
+        fields = ["name", "calories", "description"]   
+   ```
+
+   Dan setelah itu saya membuka direktori views.py pada direktori main dan menambahkan beberaoa kode kedalamnya di bagian paling atas yaitu :
+   ```
+   from django.shortcuts import render, redirect   # Tambahkan import redirect di baris ini
+   from main.forms import FoodForm
+   from main.models import Food
+   ```
+
+   Masih di file yang sama yaitu file viewa.py saya menambahkan kode yang berguna untuk menambah jenis makanan sehat di formulir secara otomatis ketika meng submit di formulir yang akan diciptakan dengan :
+   ```
+   def create_food(request):
+    form = FoodForm(request.POST or None)
+
+    if form.is_valid() and request.method == "POST":
+        form.save()
+        return redirect('main:show_main')
+
+    context = {'form': form}
+    return render(request, "create_food.html", context)
+    ```
+
+    Saya menambahkan beberapa fungsi pada bagian show_main pada file views.py yang masih di direktori main dengan kode :
+   ```
+   def show_main(request):
+    foods = food.objects.all()
+
+    context = {
+        'name': 'Gistela Namasya Sinurat',
+        'class': 'PBP A',
+        'foods': foods
+    }
+
+    return render(request, "main.html", context)
+    ```
+
+   Lalu saya membuka file urls.py yang ada di direktori main dan mengubah fungsi menjadi :
+   ```
+   from main.views import show_main, create_food
+   ```
+
+   Dan saya menambahkan path url tetap masih di direktori urls.py yang sama di fungsi urlpatterns dengan :
+   ```
+   path('create-food', create_food, name='create_food'),
+   ```
+
+   Setelah itu saya membuat file baru yang bernama create_food.html yang say masukkan ke direktori templates yang ada di direktori main dan mengisinya dengan kode :
+   ```
+   {% extends 'base.html' %} {% block content %}
+<h1>Add New Food</h1>
+
+<form method="POST">
+  {% csrf_token %}
+  <table>
+    {{ form.as_table }}
+    <tr>
+      <td></td>
+      <td>
+        <input type="submit" value="Add Food" />
+      </td>
+    </tr>
+  </table>
+</form>
+
+{% endblock %}
+```
+
+Selanjutnya saya membuka file main.html dan menambahkan kode :
+```
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Page</th>
+    <th>Description</th>
+    <th>Date Added</th>
+  </tr>
+
+  {% comment %} Berikut cara memperlihatkan data produk di bawah baris ini
+  {%endcomment %} {% for book in books %}
+  <tr>
+    <td>{{food.name}}</td>
+    <td>{{food.calories}}</td>
+    <td>{{food.description}}</td>
+    <td>{{food.date_added}}</td>
+  </tr>
+  {% endfor %}
+</table>
+
+<br />
+
+<a href="{% url 'main:create_food' %}">
+  <button>Add New Food</button>
+</a>
+{% endblock content %}
+```
 
 
 
