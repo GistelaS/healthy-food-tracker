@@ -176,7 +176,52 @@ D. Jelaskan apakah itu MVC, MVT, MVVM dan perbedaan dari ketiganya.
 
 ## Tugas 3
 
-- ### Membuat input form untuk menambahkan objek model pada app sebelumnya.
+- ### Apa perbedaan antara form POST dan form GET dalam Django?
+
+   Perbedaan diantara form POST dan form GET dalam Django adalah :
+
+   a. Form POST
+   
+   1.  Dalam penampungan data atau nilai yang dikirimkan memakai variabel request.POST
+   2. Pemakaian form POST lebih baik digunakan untuk oengiriman daya yang rahasia, file, memiliki teks yang panjang bahakan data yang lebih besar atau lebih kompleks
+   3. Form POST tidak perlu menampilkan URL tetapi dapat mengirimkan data langsung ke action
+
+   b. Form GET
+
+   1. Dalam pengaksesan data atau nilai yang diterima bisa dengan menggunakan variabel request.GET
+   2. Berbeda dengan form POST, form GET menunjukkan data atau nilai ada pada URL setelah itu menampungnya dengan action
+   3. Kalau untuk cakupan parameter tertentu yang dalam pembagian URl atau untuk penggunaan permintaan pencarian form GET lah yang cocok digunakan
+
+   Dengan kesimpulan form GET untuk yang ingin dalma pembagian URL, pemunculan data pada URL atau permintaan pencarian dan form POST penggunaan dalam pengiriman data yang besar dan kompleks yang dikirim secara langsung.
+
+- ### Apa perbedaan utama antara XML, JSON, dan HTML dalam konteks pengiriman data?
+
+   a. XML (Extensible Markup Language)
+
+   1. Penggunaan : Untuk pertukaran data dalam aplikasi bisnis dan enterprise XML adalah pilihan yang tepat.
+
+   2. Struktur : XML merupakan bahasa markup yang penggunaanya untuk pembuatan dokumen yang dapat dibaca oleh mesin ataupun manusia. Penggunaan XML tepatnya untuk data yang sangat terstruktur dan kompleks contohnya adalah laporan keuangan atau pun dokumen.
+
+   3. Kelebihan : Dapat digunakan di berbagai platform ataupun bahasa.
+
+   4. Kekurangan : Penyimpanan yang besar sehingga mengakibatkan pengoperasian yang lambat
+
+   b. JSON (JavaScript Object Notation) :
+
+   Dengan JSON tipe data yang terbatas yaitu string, angka, dan objek dapat didukung. Dan juga JSON memiliki sifat yang ringkas dan menyesuaikan. Untuk merepresentasikan data di JSON digunakan dengan pasangan kunci-kunci. Pertukaran data JSON dapat dibaca oleh mesin maupun manusia.
+
+   c. HTML (Hypertext Markup Language)
+      Berguna untuk menampilkan data dengan bersifat statis dan digunakan juga untuk membuat halaman web. Format tampilan data merupakan fokus utama dari HTML dan HTML merupakan bahasa markah yang berguna untuk menampilkan daya di web.
+
+   Untuk kesimpulan dimana HTML condong ke penampilan data dan pembangunan halaman web, XML berguna untuk pertukaran data yang lebih terstruktur, dan yang terakhir yaitu JSON cenderung yang bersifat fleksibel atau menyesuaikan dan biasnya digunakan pada API.
+
+- ### Mengapa JSON sering digunakan dalam pertukaran data antara aplikasi web modern?
+
+
+   Dikarenakan ke fleksibiltasannya dan mudahnya pemakaiannya maka JSON lebih cocok dipakai untu penanganan API dan tidak hanya menggunkanakn JavaScript tetapi berbagai bahasa pemrograman dapat digunakan. Selain itu JSON juga tidak perlu menggunakan tanda-tanda khusus seperti di XML karena JSON bersifat lebih intuitif dan artinya manusia lebih mudah untuk memahami. Tidak seperti XML juga, JSON memiliki ukuran fileyang kecil sehingga bisa lebih cepat  dalam pengiriman data dan meminimalkan penggunaan bandwidth.
+
+
+- ### Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step
 
    Pertama saya menambahkan file baru pada direktori utama saya yang bernama base.html yang diisi dengan kode berikut :
    ```
@@ -219,7 +264,7 @@ D. Jelaskan apakah itu MVC, MVT, MVVM dan perbedaan dari ketiganya.
         fields = ["name", "calories", "description"]   
    ```
 
-   Dan setelah itu saya membuka direktori views.py pada direktori main dan menambahkan beberaoa kode kedalamnya di bagian paling atas yaitu :
+   Dan setelah itu saya membuka direktori views.py pada main dan menambahkan beberaoa kode kedalamnya di bagian paling atas yaitu :
    ```
    from django.shortcuts import render, redirect   # Tambahkan import redirect di baris ini
    from main.forms import FoodForm
@@ -239,7 +284,7 @@ D. Jelaskan apakah itu MVC, MVT, MVVM dan perbedaan dari ketiganya.
     return render(request, "create_food.html", context)
     ```
 
-    Saya menambahkan beberapa fungsi pada bagian show_main pada file views.py yang masih di direktori main dengan kode :
+    Saya menambahkan beberapa fungsi pada bagian show_main pada file views.py yang masih di main dengan kode :
    ```
    def show_main(request):
     foods = food.objects.all()
@@ -253,65 +298,157 @@ D. Jelaskan apakah itu MVC, MVT, MVVM dan perbedaan dari ketiganya.
     return render(request, "main.html", context)
     ```
 
-   Lalu saya membuka file urls.py yang ada di direktori main dan mengubah fungsi menjadi :
+   Lalu saya membuka file urls.py yang ada di main dan mengubah fungsi menjadi :
    ```
    from main.views import show_main, create_food
    ```
 
-   Dan saya menambahkan path url tetap masih di direktori urls.py yang sama di fungsi urlpatterns dengan :
+   Dan saya menambahkan path url tetap masih di file urls.py yang sama di fungsi urlpatterns dengan :
    ```
    path('create-food', create_food, name='create_food'),
    ```
 
-   Setelah itu saya membuat file baru yang bernama create_food.html yang say masukkan ke direktori templates yang ada di direktori main dan mengisinya dengan kode :
+   Setelah itu saya membuat file baru yang bernama create_food.html yang say masukkan ke direktori templates yang ada di main dan mengisinya dengan kode :
+
    ```
    {% extends 'base.html' %} {% block content %}
-<h1>Add New Food</h1>
+       <h1>Add New Food</h1>
 
-<form method="POST">
-  {% csrf_token %}
-  <table>
-    {{ form.as_table }}
-    <tr>
-      <td></td>
-      <td>
-        <input type="submit" value="Add Food" />
-      </td>
-    </tr>
-  </table>
-</form>
+   <form method="POST">
+   {% csrf_token %}
+   <table>
+      {{ form.as_table }}
+      <tr>
+         <td></td>
+         <td>
+         <input type="submit" value="Add Food" />
+         </td>
+      </tr>
+   </table>
+   </form>
 
-{% endblock %}
-```
+   {% endblock %}           
+   ```
 
-Selanjutnya saya membuka file main.html dan menambahkan kode :
-```
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Page</th>
-    <th>Description</th>
-    <th>Date Added</th>
-  </tr>
+   Selanjutnya saya membuka file main.html dan menambahkan kode :
 
-  {% comment %} Berikut cara memperlihatkan data produk di bawah baris ini
+   ```
+   <table>
+   <tr>
+      <th>Name</th>
+      <th>Calories</th>
+      <th>Description</th>
+      <th>Date Added</th>
+   </tr>
+
+   {% comment %} Berikut cara memperlihatkan data produk di bawah baris ini
   {%endcomment %} {% for book in books %}
-  <tr>
-    <td>{{food.name}}</td>
-    <td>{{food.calories}}</td>
-    <td>{{food.description}}</td>
-    <td>{{food.date_added}}</td>
-  </tr>
-  {% endfor %}
-</table>
+   <tr>
+      <td>{{food.name}}</td>
+      <td>{{food.calories}}</td>
+      <td>{{food.description}}</td>
+      <td>{{food.date_added}}</td>
+   </tr>
+   {% endfor %}
+   </table>
 
-<br />
+   <br />
 
-<a href="{% url 'main:create_food' %}">
-  <button>Add New Food</button>
-</a>
-{% endblock content %}
-```
+   <a href="{% url 'main:create_food' %}">
+   <button>Add New Food</button>
+   </a>
+   {% endblock content %}
+   ```
+
+   Setelah itu saya membuka file views.py pada main dan menambahkan kode pada bagian paling atas dengan :
+   ```
+   from django.http import HttpResponse
+   from django.core import serializers
+   ```
+
+   Dan juga dibagian menambahkan kode ini :
+   ```
+   def show_xml(request):
+      data = Food.objects.all()
+   ```
+
+   Langkah berikutnya saya membuka file urls.py msih di main dan mengubah bagian kode menjadi :
+   ```
+   from main.views import show_main, create_food, show_xml
+   ```
+
+   Masih di file yang sama dan menambahkan kode :
+   ```
+   ...
+   path('xml/', show_xml, name='show_xml'),
+   ...
+   ```
+
+   Lalu saya menjalankan pada command prompter dengan perintah python manage.py runserver dengan virtual environment yang sudah katif lalu membuka pada browser dan Healthy Food Tracker Page sudah ada hasilnya.
+
+   Langkah selanjutnya adalah saya membuka file views.py pada main dan menambah kode berikut :
+   ```
+   def show_json(request):
+      data = Book.objects.all()
+      return HttpResponse(serializers.serialize("json", data), content_type="application/json") 
+   ```
+
+   Lalu saya membuka file urls.py yang ada pada di main dan mengubah kode menjadi :
+   ```
+   from main.views import show_main, create_book, show_xml, show_json
+   ```
+
+   dan menambahkan kode ini masih pada file urls.py yang sama :
+   ```
+   ...
+   path('json/', show_json, name='show_json'),
+   ...
+   ```
+
+   Lalu saya membuka file views.py pada  main dan menambahkan kode berikut :
+   ```
+   def show_xml_by_id(request, id):
+      data = Food.objects.filter(pk=id)
+      return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
+   ```
+
+   dan
+
+   ```
+   def show_json_by_id(request, id):
+      data = Food.objects.filter(pk=id)
+      return HttpResponse(serializers.serialize("json", data), content_type="application/json")
+   ```
+
+   Setelah itu saya membuka file urls.py yang ada pada main dan mengubah kode menjadi :
+   ```
+   from main.views import show_main, create_book, show_xml, show_json, show_xml_by_id, show_json_by_id
+   ```
+
+   dan menambahkan kode berikut :
+   ```
+   ...
+   path('xml/<int:id>/', show_xml_by_id, name='show_xml_by_id'),
+   path('json/<int:id>/', show_json_by_id, name='show_json_by_id'),
+   ...
+   ```
+
+   Dan untuk meilhat hasilnya saya memakai command prompter yang tadi dan menjalankan perintah python manage.py runserver dan membuka pada browser dan keluarlah hasilnya.
+
+- ###  Mengakses keempat URL di poin 2 menggunakan Postman, membuat screenshot dari hasil akses URL pada Postman, dan menambahkannya ke dalam README.md
+
+   1. ![XML](image-1.png)
+
+   2. ![JSON](image-2.png)
+
+   3. ![JSON by ID](image-3.png)
+
+   4. ![XML by ID](image-4.png)
+
+
+
+
+
 
 
 
