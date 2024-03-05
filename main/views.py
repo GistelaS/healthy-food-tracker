@@ -83,3 +83,24 @@ def login_user(request):
             messages.info(request, 'Sorry, incorrect username or password. Please try again.')
     context = {}
     return render(request, 'login.html', context)
+def edit_food(request, id):
+    # Get food berdasarkan ID
+    food = Food.objects.get(pk = id)
+
+    # Set food sebagai instance dari form
+    form = FoodForm(request.POST or None, instance=food)
+
+    if form.is_valid() and request.method == "POST":
+        # Simpan form dan kembali ke halaman awal
+        form.save()
+        return HttpResponseRedirect(reverse('main:show_main'))
+
+    context = {'form': form}
+    return render(request, "edit_food.html", context)
+def delete_food(request, id):
+    # Get data berdasarkan ID
+    food = Food.objects.get(pk = id)
+    # Hapus data
+    food.delete()
+    # Kembali ke halaman awal
+    return HttpResponseRedirect(reverse('main:show_main'))

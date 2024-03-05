@@ -1,5 +1,49 @@
- {% block content %}
-<h1>Healthy Food Tracker Page</h1>
+{% extends 'base.html' %}{% block content %}
+
+<nav class="navbar navbar-expand-lg navbar navbar-success bg-success">
+  <div class="container-fluid">
+   
+    </a>
+    <button class="btn-outline-warning  navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link text-warning active" aria-current="page" href="#">Me!</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#"></a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-warning" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Healthy Fun Facts!
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item text-warning" href="#">Foods</a></li>
+            <li><a class="dropdown-item text-warning" href="#">Drinks</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item text-warning" href="#">Activities</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+        </li>
+                <a class="text-center fw-bold text-warning fs-1 navbar-brand" href="#">Healthy Food Tracker Page
+                </a>
+      </ul>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="looking for?" placeholder="looking for?" aria-label="looking for?">
+        <button type="button" class="btn btn-outline-warning">Find It</button>
+      </form>
+    </div>
+  </div>
+</nav>
+<style>
+  body {
+    background-color: darkolivegreen;
+  }
+</style>
 
 <h5>Name:</h5>
 <p>{{name}}</p>
@@ -21,17 +65,33 @@
     <td>{{food.calories}}</td>
     <td>{{food.description}}</td>
     <td>{{food.date_added}}</td>
+    <td>
+      <a href="{% url 'main:edit_food' food.pk %}">
+          <button>
+              Edit
+          </button>
+      </a>
+      <a href="{% url 'main:delete_food' food.pk %}">
+        <button>
+            Delete
+        </button>
+    </a>
+  </td>
   </tr>
   {% endfor %}
 </table>
-
+    
 <br />
-
+</a>
 <a href="{% url 'main:create_food' %}">
   <button>Add New Food</button>
 </a>
 <a href="{% url 'main:logout' %}">
   <button>Logout</button>
 </a>
+
+  
+
+
 <h5>Sesi terakhir login: {{ last_login }}</h5>
 {% endblock content %}

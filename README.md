@@ -2,7 +2,7 @@
 ## Tugas 2
 - ### Membuat sebuah proyek Django baru
 
-    a. Langkah pertama adalah saya membuat          direktori baru yang bernama healthy-food-tracker pada komputer saya lalu saya membuka command prompt dan membuat virtual environment dengan perintah 
+    a. Langkah pertama adalah saya membuat direktori baru yang bernama healthy-food-tracker pada komputer saya lalu saya membuka command prompt dan membuat virtual environment dengan perintah 
 
    ```
     python -m venv env 
@@ -14,7 +14,7 @@
    ```
    Dengan begitu sudah keluar tanda aktifnya virtual environment dengan (env) dibagaian paling depan setiap perintah di command prompter.
 
-    b. Selanjutnya saya mengisolasi         dependencies dan menciptakan proyek Django yang baru.Yang pertama dalam tahap ini saya menambahkan di dalam folder Healthy-Food-Tracker yaitu berkas requirements.txt yang akan diisi dengan dependencies yaitu
+    b. Selanjutnya saya mengisolasi dependencies dan menciptakan proyek Django yang baru.Yang pertama dalam tahap ini saya menambahkan di dalam folder Healthy-Food-Tracker yaitu berkas requirements.txt yang akan diisi dengan dependencies yaitu
 
     ```
     django
@@ -32,7 +32,7 @@
     ```
     django-admin startproject healthy_food_tracker .
     ```
-    c. Saya juga melakukan konfigurasi  setelahnya dan     tidak lupa menjalankan server dengan menambahkan tanda bintang diantar kurung dibagian ALLOWED_HOSTS yang ada di settings.py (kalau saya menggunakan visual studio code) yang berguna untuk deployment dengan perintah
+    c. Saya juga melakukan konfigurasi  setelahnya dan tidak lupa menjalankan server dengan menambahkan tanda bintang diantar kurung dibagian ALLOWED_HOSTS yang ada di settings.py (kalau saya menggunakan visual studio code) yang berguna untuk deployment dengan perintah
     ```
     ...
     ALLOWED_HOSTS = ["*"]
@@ -108,7 +108,8 @@
 - ### Membuat sebuah routing pada urls.py aplikasi main untuk memetakan fungsi yang telah dibuat pada views.py.
 
     Dan untuk kedua poin ini akan saya paparkan dengan bersamaan. 
-    a. Pertama saya menambahkan new file pada visual studio code saya dengan nama urls.py dan menambahkannya kedalam berkas main. Lalu saya membuka berkas urls.py di visual studio code saya yang sebelumnya ada di berkas healthy_food_tracker dan mencari from django.urls import path dan menambahkan , include disampingnya. Dan juga saya merubah variabel urlpatterns . menjadi
+
+    Pertama saya menambahkan new file pada visual studio code saya dengan nama urls.py dan menambahkannya kedalam berkas main. Lalu saya membuka berkas urls.py di visual studio code saya yang sebelumnya ada di berkas healthy_food_tracker dan mencari from django.urls import path dan menambahkan , include disampingnya. Dan juga saya merubah variabel urlpatterns . menjadi
 
     ```
     urlpatterns = [
@@ -130,49 +131,49 @@ C. Jelaskan mengapa kita menggunakan virtual environment? Apakah kita tetap dapa
 
 D. Jelaskan apakah itu MVC, MVT, MVVM dan perbedaan dari ketiganya.
 
-    A. Untuk poin ini sudah saya paparkan di berkas README. md ini
+ A. Untuk poin ini sudah saya paparkan di berkas README. md ini
 
-    B. Susah ada penjelasan di atas.
+ B. Susah ada penjelasan di atas.
 
-    C. Virtual environment (lingkungan virtual) adalah alat yang memungkinkan Anda untuk membuat lingkungan Python terisolasi. ada beberapa alasan digunakannya virtual enviroment dalam pengembangan aplikasi web berbasis Django : Isolasi Dependensi:  Dengan virtual environment, Anda dapat memiliki beberapa versi Python di komputer Anda tanpa bentrokan. Setiap versi dapat dianggap sebagai lingkungan pengembangan yang terpisah. Anda dapat menginstal versi berbeda dari pustaka dan modul Python secara terisolasi. Ini sangat penting karena memungkinkan Anda menghindari konflik antara versi ketika bekerja pada beberapa proyek. 
+ C. Virtual environment (lingkungan virtual) adalah alat yang memungkinkan Anda untuk membuat lingkungan Python terisolasi. ada beberapa alasan digunakannya virtual enviroment dalam pengembangan aplikasi web berbasis Django : Isolasi Dependensi:  Dengan virtual environment, Anda dapat memiliki beberapa versi Python di komputer Anda tanpa bentrokan. Setiap versi dapat dianggap sebagai lingkungan pengembangan yang terpisah. Anda dapat menginstal versi berbeda dari pustaka dan modul Python secara terisolasi. Ini sangat penting karena memungkinkan Anda menghindari konflik antara versi ketika bekerja pada beberapa proyek. 
 
-    1.	Isolasi Dependensi      Virtual environment dapat memeberi pengguna untuk memiliki beberapa versi python dikomputernya tanpa bentrok. Di tiap versi bisa dianggap sebagai lingkungan pengembangan yang terpisah. Dan juga pengguna dapat menginstal versi berbeda dari pustaka dan modul python secara terisolasi. Penting adanya karena dapat memberikan kemungkinan untuk terhindar dari konfil antara versi di berbagai pekerjaan proyek pengguna.
+   1.	Isolasi Dependensi Virtual environment dapat memeberi pengguna untuk memiliki beberapa versi python dikomputernya tanpa bentrok. Di tiap versi bisa dianggap sebagai lingkungan pengembangan yang terpisah. Dan juga pengguna dapat menginstal versi berbeda dari pustaka dan modul python secara terisolasi. Penting adanya karena dapat memberikan kemungkinan untuk terhindar dari konfil antara versi di berbagai pekerjaan proyek pengguna.
 
-    2.	Kepatuahn Versi 
+   2.	Kepatuahn Versi 
     Virtual environment memberikan kemungkinan para pengguna dalam menentukan dan mengelola versi yang tepat dari Django dan dependensinya untuk di berbagai proyek. Dapat memastikan untuk proyek pengguna pasti kompatibel dengan versi yang digunakan saat pengembangan, walaupun nantinya pengguna ingin mengupgrade Django ataupun pustaka lain untuk berbagai proyek.
 
-    3.	Kebersihan dan Keamanan
+   3.	Kebersihan dan Keamanan
     Adanya Virtual environment, pengguna dapat memastikan pengembangan dan pemeliharaan proyek Django dan tidak mengkhawatirkan konflik dependensi.
 
-    4.	Pengujian
-    Pengujian sangat penting untuk virtual environment. Jika pengguna hendak mengganti versi Django didalam aplikasi web dari 1.5 ke 1.9, pengguna tiak sulit untuk menjalankannya dan membuat virtuak environment yang baru lalu dapat menginstal versi Django yang lain.
+   4.	Pengujian
+    Pengujian sangat penting untuk virtual environment. Jika pengguna hendak mengganti versi Django didalam aplikasi web dari 1.5 ke 1.9, pengguna tiak sulit untuk menjalankannya dan membuat virtual environment yang baru lalu dapat menginstal versi Django yang lain.
 
-    Walaupun pengguna tidak diwajibkan untuk menggunakan virtual environment, lebih baik dan disarankan agar pengguna tetap menggunakannya dengan cara pengaplikasian yang mudah yaitu membuat virtual environment yang baru lalu mengaktifkan virtual environment dan akhirnya bisa mengembangkan aplikasi web dajngo yang jauh dari konflik dependensi.
+   Walaupun pengguna tidak diwajibkan untuk menggunakan virtual environment, lebih baik dan disarankan agar pengguna tetap menggunakannya dengan cara pengaplikasian yang mudah yaitu membuat virtual environment yang baru lalu mengaktifkan virtual environment dan akhirnya bisa mengembangkan aplikasi web Django yang jauh dari konflik dependensi.
 
-    D. 
+   D. 
 
-    1. Model-View-Controller (MVC):
-    - Model: Mewakili data dan bisnis logic aplikasi.
-    - View: Bertanggung jawab untuk menampilkan data dari model.
-     - Controller: Berperan sebagai penghubung antara model     dan view. Mengatur interaksi pengguna dan mengubah status model dan view.
-     - *Perbedaan: Pada MVC, view adalah struktur aktif yang meminta informasi dari model. Controller hanya mengubah status model dan view.
+   1. Model-View-Controller (MVC):
+   - Model: Mewakili data dan bisnis logic aplikasi.
+   - View: Bertanggung jawab untuk menampilkan data dari model.
+   - Controller: Berperan sebagai penghubung antara model dan view. Mengatur interaksi pengguna dan mengubah status model dan view.
+   - Perbedaan: Pada MVC, view adalah struktur aktif yang meminta informasi dari model. Controller hanya mengubah status model dan view.
 
-    2. Model-View-Template (MVT):
-     - Model: Sama seperti pada MVC, mewakili data dan bisnis logic.
-     - View: Menampilkan data dari model.
-    - Template: Bertanggung jawab untuk menghasilkan tampilan HTML. Mirip dengan view pada MVC.
-     - *Perbedaan*: MVT adalah varian dari MVC yang lebih umum digunakan dalam kerangka kerja web Django. Template menggantikan peran view dalam menghasilkan tampilan.
+   2. Model-View-Template (MVT):
+   - Model: Sama seperti pada MVC, mewakili data dan bisnis logic.
+   - View: Menampilkan data dari model.
+   - Template: Bertanggung jawab untuk menghasilkan tampilan HTML. Mirip dengan view pada MVC.
+   - Perbedaan : MVT adalah varian dari MVC yang lebih umum digunakan dalam kerangka kerja web Django. Template menggantikan peran view dalam menghasilkan tampilan.
 
-    3. Model-View-ViewModel (MVVM):
-     - Model: Data dan bisnis logic, sama seperti pada MVC dan MVT.
-     - View: Menampilkan data dari model.
-     - ViewModel: Berperan sebagai penghubung antara view dan model. ViewModel memanipulasi informasi sebelum melewatkan ke view.
-     - Perbedaan: MVVM digunakan ketika ada antarmuka pengguna yang sudah ada (misalnya, UI yang tidak dapat diubah) dan model yang sudah ada. ViewModel membantu mengintegrasikan keduanya.
+   3. Model-View-ViewModel (MVVM):
+   - Model: Data dan bisnis logic, sama seperti pada MVC dan MVT.
+   - View: Menampilkan data dari model.
+   - ViewModel: Berperan sebagai penghubung antara view dan model. ViewModel memanipulasi informasi sebelum melewatkan ke view.
+   - Perbedaan: MVVM digunakan ketika ada antarmuka pengguna yang sudah ada (misalnya, UI yang tidak dapat diubah) dan model yang sudah ada. ViewModel membantu mengintegrasikan keduanya.
 
-    secara singkat:
-    - MVC: View aktif, controller mengubah model dan view.
-    - MVT: Mirip dengan MVC, tetapi menggunakan template untuk tampilan.
-    - MVVM: ViewModel memanipulasi data sebelum ditampilkan di view.
+   secara singkat:
+   - MVC: View aktif, controller mengubah model dan view.
+   - MVT: Mirip dengan MVC, tetapi menggunakan template untuk tampilan.
+   - MVVM: ViewModel memanipulasi data sebelum ditampilkan di view.
 
 ## TUGAS 3
 
@@ -481,7 +482,7 @@ D. Jelaskan apakah itu MVC, MVT, MVVM dan perbedaan dari ketiganya.
 
       pada UserCreationForm hanya menyediakan field username dan password. Untuk penambahan field lainnya diperlukan untuk menambahkan form secara mandiri.
 
-  -   Tidak Kond=firmasi Email
+  -   Tidak Konfirmasi Email
 
       Seperti yang sudah disebutkan diatas bahwa UserCreationForm tidak memerlukan konfirmasi email dalam pembuatan akun, dengan begitu kuranglah sisi keamanannya.
 
@@ -562,7 +563,7 @@ D. Jelaskan apakah itu MVC, MVT, MVVM dan perbedaan dari ketiganya.
 
       3. Database-backed sessions 
 
-         Untuk data sesi disimppan dalam basis data dengan menambahkan kode berikut pada INSTALLED_APPS
+         Untuk data sesi disimpan dalam basis data dengan menambahkan kode berikut pada INSTALLED_APPS
 
          ```
          'django.contrib.sessions'
@@ -578,9 +579,9 @@ D. Jelaskan apakah itu MVC, MVT, MVVM dan perbedaan dari ketiganya.
 
     - Django berfungsi dalam middleware sesi yang berguna dalam pengiriman maupun penerimaan cookies
 
-   - Ketika penngguna melakukakn request HTTP pertamanya ke server maka middleware sesi akan memulai sesi yang baru
+    - Ketika penngguna melakukakn request HTTP pertamanya ke server maka middleware sesi akan memulai sesi yang baru
 
-   - Adanya sesi untuk mengatur pengguna dalam penggunaan data hanya sesuai dengan sesi mereka
+    - Adanya sesi untuk mengatur pengguna dalam penggunaan data hanya sesuai dengan sesi mereka
 
    Dapat disimpulkan bahwa bahwa penggunaan cookies pada Django dapat mengatur keamanan, pengaksesan data informasi, dan juga penggunaan sesi yang sesuai dengan sesi masing-masing pengguna
 
@@ -930,6 +931,96 @@ lalu langkah selanjutnya ada di tangkapan layar berikut :
 - ### Menampilkan detail informasi pengguna yang sedang logged in seperti username dan menerapkan cookies seperti last login pada halaman utama aplikasi.
 
 ![detail informasi pengguna](image-6.png)
+
+- ## TUGAS 5
+
+- ### Menjawab beberapa pertanyaan berikut pada README.md pada root folder
+
+- Jelaskan manfaat dari setiap element selector dan kapan waktu yang tepat untuk menggunakannya.
+
+   Di CSS (Cascading Style Sheets), pemilihan selektor berguna dalam pengaturan penampilan elemen-elemen yang ada di halaman web. Jenis- jenis, manfaat dan waktu yang tepat dalam penggunaanya sebagai selektor, seperti berikut :
+
+   a. Selektor ID (ID Selektor)
+
+   Digunakan saat penggunaan blok dalam pemberian style khusus terhadap hanya elemen yang memiliki ID unik saja. Contohnya header, footer, dan juga konten. Manfaat dari sekeltor ID ini adalah pemberian yang lebih spesifik/ terkhusus elemen yang memiliki  ID unik saja.
+
+   b. Selektor Universal (Universal Selektor)
+
+   Dianjurkan dalam penggunaan selektor universal dikarenakan berpengaruh secara keseluruhan dan cocok dalam penggunaan dasar yang global. SElektor Universal berguna dalam penggunaan style kepada semua elemen yang ada di HTML.
+
+   c. Selektor Elemen (Type Selector)
+
+   Penggunaan style yang umum terhadap semua elemen yang memiliki tipe yang sama. Bermanfaat dalam semua elemen yang memiliki tipe yang sama. Pada contohnya, untuk < p> yaitu paragraf.
+
+   d. Selektor Kelas (Class Selector)
+
+   Pemakaian selektor kelas berikut adalah dalam pemberian jenis style yang sama pada elemen yang sama juga seperti dalam pemberian tombol, kotak info, dll. Bermanfaat dalam memilih terhadap elemn yang memiliki atribut kelas yang sama dan dapat diulang dalam pemakaiannya di  satu dokumen HTML.
+
+   Penting dalam pemakaian selektor sesuai dengan kebutuhan dan manfaat yang tepat. Pemilihan jenis CSS yang digunakan harus sesuai dengan kebutuhan agar mudah dipelihara dan terstruktur.
+
+- Jelaskan HTML5 Tag yang kamu ketahui.
+
+   a. < img > : Sisip Gambar
+
+   b. < h1> sampai <h6> : untuk heading dengan skala prioritas yang berbeda
+
+   c. < p > : pembuatan teks atau paragraf
+
+   d. < footer> : pengartian dalam bagian footer pada halaman
+
+   e. < nav > : untuk navigasi
+
+- Jelaskan perbedaan antara margin dan padding.
+
+    Jelas berbeda antara penggunaan margin dan padding pada CSS, sama-sama mengatur tata letak elemen yang akan ada di web nantinya, yaitu :
+
+    a. Margin
+    
+    Untuk margin penggunaannya tidak mengatur dalam ukuran elemen tetapi, mempengaruhi atar ruang elemen seperti elemen yang berdekatan atau memberi batas pada elemen. Dengan begitu elemen mengatur secara keseluruhan mengenai tata letak elemen yang mana jarak jika elemen yang berdekatan. Berikut contohnya :
+    ```
+    .box {
+       background: blue;
+       height: 200px;
+       width: 300px;
+       margin: 20px;
+    }
+    ```
+
+    Dapat diartikan bahwa kotak biru yang mempunyai margin 20px di segala sisi
+
+    b. Padding
+
+    Berbeda dengan margin, padding mengatur tentang tata letak elemen internal dan tidak mempengaruhi elemen luar. Dapat diartikan juga padding adalah ruang yang di dalam elemen, antara konten dengan batas elemen tersebut. Dan juga padding berpengaruh dengan penambahan ukuran elemen . Berikut contohnya :
+
+    ```
+    .box {
+       background: blue;
+       height: 200px;
+       width: 300px;
+       padding: 10px;
+    }
+
+    Dapat diartikan bahwa kotak biru memiliki ukuran padding 10px di segala sisi yang mengatur ruang didalam elemen.
+
+    Maka dari itu kita bisa mengatur tata letak dan design pada web kita dengan baik.
+
+- Jelaskan perbedaan antara framework CSS Tailwind dan Bootstrap. Kapan sebaiknya kita menggunakan Bootstrap daripada Tailwind, dan sebaliknya?
+
+   Untuk Tailwind memiliki ukuran penyimpanan file yang lebih kecil dari pada penyimpanan file Bootstrap dikarenakan hanya mengisi kelas macam utilitas yang ada saja. Dan berguna dalam menyatukan macam kelas utitlitas untuk menghasilkan tampilannya. Seditikit lebih kompleks dalam pemahaman penggunaan Tailwind karena harus menggabungkan macam kelas utilitas dalam mendapatkan penampilan yang diinginkan. Tailwind juga mempunyai sifat yang adaptif dan fleksibel yang tinggi dalam pembuatan proyek.
+
+   Dan untuk bootstrap lebih mempunyai kopatibilitas yang luas yang ada di berbagai browser ataupun perangkat. Bootstrap juga memiliki banyaknya dokumentasi yang baik secara online, menyediakan banyak juga elemen siap pakai seperti kartu, jumbotron, dan tombol sehingga dapat di implementasikan secara cepat.
+
+   Dan untuk waktu pemakaiannya sesuai dengan kebutuhan terhadap proyek si pengembang, yaitu untuk pengembang yang ingin lebih eksplor dan fleksibel dalam meng design dapat menggunakan Tailwind sendangkan untuk pengembang yang membutuhkan implementasi yang cepat dapat menggunakan Bootstrap.
+
+
+
+
+
+
+
+
+
+
 
 
 
