@@ -958,7 +958,7 @@ lalu langkah selanjutnya ada di tangkapan layar berikut :
 
    Penting dalam pemakaian selektor sesuai dengan kebutuhan dan manfaat yang tepat. Pemilihan jenis CSS yang digunakan harus sesuai dengan kebutuhan agar mudah dipelihara dan terstruktur.
 
-- Jelaskan HTML5 Tag yang kamu ketahui.
+- Jelaskan HTML 5 Tag yang kamu ketahui.
 
    a. < img > : Sisip Gambar
 
@@ -1011,6 +1011,179 @@ lalu langkah selanjutnya ada di tangkapan layar berikut :
    Dan untuk bootstrap lebih mempunyai kopatibilitas yang luas yang ada di berbagai browser ataupun perangkat. Bootstrap juga memiliki banyaknya dokumentasi yang baik secara online, menyediakan banyak juga elemen siap pakai seperti kartu, jumbotron, dan tombol sehingga dapat di implementasikan secara cepat.
 
    Dan untuk waktu pemakaiannya sesuai dengan kebutuhan terhadap proyek si pengembang, yaitu untuk pengembang yang ingin lebih eksplor dan fleksibel dalam meng design dapat menggunakan Tailwind sendangkan untuk pengembang yang membutuhkan implementasi yang cepat dapat menggunakan Bootstrap.
+
+- ## Tugas 6 (JavaScript dan Asynchronous JavaScript)
+
+- ### Jelaskan perbedaan antara asynchronous programming dengan synchronous programming.
+
+   Perbedaan antara asynchronous programming dengan synchronous programming pastinya diantara ini adalah 2 model yang berbeda yaitu :
+
+   a. Asynchronous Programming 
+   
+   Non-Blocking dimana program tidak akan berhenti pengeksekusian pada satu tugas atau lebih selama pengoperasiannya, yang mana operasi akan berjalan terus tanpa harus menunggu salah satu tugas selesai.Dan ada juga Multithreaded dimana model ini yang membantu dalam program atau pengoperasian berlangsung secara bersamaan yang bisa disebut paralel. Untuk contohnya adalah beberapa pengembang yang bersamaan bekerja dalam pengembangan aplikasi pada proyek menggunakan low-code dan untuk contoh lain dimana saat kita chatting dapat melakukan kegiatan yang lain sambil menunggu balasan chat kita.
+
+   b. Synchronous Programming 
+
+   Synchoronous dan Asynchronous berbanding terbalik, dimana pada synchronous ini memiliki model Blocking dimana operasi akan dilakukan secara satu per satu dan dengan urutan yang ketat sehingga jika ada satu intruksi sedang berjalan dan disaat yang bersamaan ada operasi yang masuk akan secara otomatis di block untuk menunggu tugas yang saat ini selesai. Sebagai contoh kita saat mengantre dan ada yang menyalip maka orang menyalip itu bisa dikenakan sanksi berupa block.
+
+   Dapat disimpulkan dimana Asynchronous bersifat fleksibel dan bebas, sedangkan synchronous bersifat lebih ketat yang cocok pada sistem reaktif.
+
+- ### Dalam penerapan JavaScript dan AJAX, terdapat penerapan paradigma event-driven programming. Jelaskan maksud dari paradigma tersebut dan sebutkan salah satu contoh penerapannya pada tugas ini.
+
+   Kode onclick adalah dimana contoh fungsi JavaScript yang disebut event. Event adalah dimana JavaScript yang memungkinkan dalam menciptakan situs web yang dinamis. Tujuan dari onclick adalah untuk menentukan apa yang harus dilakukan JavaScript ketika sebuah elemen ditekan, dan pada umumnya event ditambahkan fungsi sebagai perintah dalam JavaScript. Selain itu, masih banyak contoh event lainnya seperti onchange, onmouseover, dan onmouseout, dll.
+
+- ### Jelaskan penerapan asynchronous programming pada AJAX.
+
+   Pemrograman asinkron AJAX (Asynchronous JavaScript and XML) memungkinkan dalam mengirim data dan menerima data dari server tanpa menghentikan ekskusi kode JavaScript. AJAX bukan bahasa pemrograman, tapi teknologi untuk mengakses server web dari halaman web. AJAX menggunakan kombinasi : Objek XMLHttpRequest bawaan browser (untuk mengirim permintaan ke server). JavaScript dan HTML DOM (untuk menampilkan atau menggunakan data). Meskipun AJAX memiliki nama 'XML', AJAX sebenarnya dapat mengiri, data dalam teks biasa atau JSON. AJAX memungkinkan dalam memperbarui halaman web secara asinkron tanpa memuat ulang seluruh halaman. Langkah-langkah dalam cara kerja AJAX yaitu dimana suatu event terjadi pada halaman web (pemuatan halaman, klik tombol,dll) lalu objek XMLHttpRequest dibuat  oleh JavaScript dan objek XMLHttpRequest mengirimkan permintaan ke server web yang akhirnya server telah memproses permintaan yang diinginkan lalu server merespons situs web dan respon dibaca dari JavaScript yang tindakatn terkait (seperti refresh halaman) dilakukan oleh JavaScript. Contoh penggunaan pemrograman asinkron dengan AJAX adalah menggunakan event listener untuk mengirim permintaan ke server dan memproses respons tanpa menghentikan berjalannya kode lain. Misalnya, saat pengguna menekan tombol, maka data dari server dapat diambil dan memperbarui halaman secara dinamis tanpa harus memuat ulang seluruh halaman.
+
+- ### Pada PBP kali ini, penerapan AJAX dilakukan dengan menggunakan Fetch API daripada library jQuery. Bandingkanlah kedua teknologi tersebut dan tuliskan pendapat kamu teknologi manakah yang lebih baik untuk digunakan.
+
+   Fetch API dan jQuery AJAX adalah dua pendekatan yang berbeda untuk mengakses data secara asinkrn dari server. Perbandingan keduanya adalah dimana Fetch API memiliki kelebihan seperti Fetch API adalah bagian dari JavaScript modern dan didukung oleh sebagian besar browser. Promised-Based dimana promise membuat respons yang asinkron sehingga lebih mudah dimengerti dan dibaca. Fetch API bersifat ringan dimana tidak diperlukannya library eksternal seperti jQuery. Dan juga bersifat fleksibel yang memungkinkan dalam mengirim permintaan dengan cara yang berbeda seperti Get, Post, dll. sehingga dapat mengatur header lebih mudah. Dan untuk kekurangannya yaitu kurangnya dukungan di IE, yang dimana tanpa polyfill maka tidak akan berfungsi di Internet Explorer (IE) dan juga adanya fungsi yang hilang yang ada di jQuery AJAX tidak ada pada Fetch API.
+
+   Dan untuk keuntungan pada jQuery AJAX adalah akses yang luas dimana kita dapat menjalankan hampir disemua browser, bahkan browser lama. Penggunaan yang sederhana dimana cukup mudah dalam pemakaiannya dengan fitur yang cukup lengkap. Dapat melakukan permintaan lintas domain dengan mudah juga. Tentunya juga mempunya kekurangan dimana membutuhkan library eksternal atau jQuery yang meningkatkan ukuran aplikasi sehingga berat. Dan juga menggunakan panggilan baik yang mengakibatkan kode akan lebih sulit untuk dibaca dan kompleks.
+
+   Untuk kesimpulan dimana Fetch API bersifat yang lebih fleksibel, modern dan ringan yang jika tidak memerlukan dukungan IE tadi. Dan untuk jQquery AJAX cocok digunakan ketika membutuhkan dukungan pemakaian pada browser lama dan jika dalam projek yang dikerjakan telah menggunakan jQuery. Tetapi untuk pilihan, saya memilih Fetch API dimana pemakaian yang lebih sederhana dan tidak berat.
+
+- ###  Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step.
+
+   - #### Mengubah tugas 5 yang telah dibuat sebelumnya menjadi menggunakan AJAX.
+
+      - #### AJAX GET
+
+         - ##### Ubahlah kode cards data item agar dapat mendukung AJAX GET.
+
+            Pertama saya membuka file main.html pada templates dan mengganti kode table  pada Visual Studio Code saya dengan :
+
+            ```
+            <table id="book_table"></table>
+            ```
+
+
+         - ##### Lakukan pengambilan task menggunakan AJAX GET.
+
+             Masih membuka file main.html yang sama sebelumnya, saya menambahkan kode berikut dibawah kode tabel yang baru saya tambahkan :
+
+            ```
+            <script>
+            async function getBooks() {
+            return fetch("{% url 'main:show_json' %}").then((res) => res.json())
+            }
+            </script>
+
+            ```
+
+      - #### AJAX POST
+
+         - ##### Buatlah sebuah tombol yang membuka sebuah modal dengan form untuk menambahkan item.
+
+            Saya menambahkan sebuah tombol yang membuka sebuah modal dengan form untuk menambahkan item pada file main.html saya sebagai berikut :
+
+            ```
+
+            ...
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Add Food by AJAX
+            </button>
+            ...
+
+            ```
+
+
+
+         - ##### Buatlah fungsi view baru untuk menambahkan item baru ke dalam basis data.
+
+            Masih di file main.html saya menambahkan fungsi berikut :
+
+            ```
+
+            <script>
+             ...
+            function addFood() {
+            fetch("{% url 'main:add_food_ajax' %}", {
+            method: "POST",
+            body: new FormData(document.querySelector('#form'))
+             }).then(refreshFoods)
+
+            document.getElementById("form").reset()
+             return false
+            }
+            </script>
+
+            ```
+
+            dan juga :
+
+            ```
+
+            <script>
+            ...
+            document.getElementById("button_add").onclick = addFood
+            </script>
+
+
+            ```
+
+
+         - #####  Buatlah path /create-ajax/ yang mengarah ke fungsi view yang baru kamu buat.
+
+            Di file views.py  saya menambahkan impor berikut :
+
+            ```
+
+            from django.views.decorators.csrf import csrf_exempt
+
+            ```
+
+            dan juga dengan :
+
+            ```
+
+            ...
+            @csrf_exempt
+            def add_food_ajax(request):
+               if request.method == 'POST':
+                  name = request.POST.get("name")
+                  page = request.POST.get("calories")
+                  description = request.POST.get("description")
+                  user = request.user
+
+                  new_food = Food(name=name, calories=calories, description=description, user=user)
+                  new_food.save()
+
+                  return HttpResponse(b"CREATED", status=201)
+
+               return HttpResponseNotFound()
+
+            ```
+
+         - ##### Hubungkan form yang telah kamu buat di dalam modal kamu ke path /create-ajax/.
+
+            Pada file urls.py yang ada di main saya menambahkan impor berikut dahulu :
+
+            ```
+
+            add_food_ajax
+
+            ```
+
+            lalu saya menambahkan :
+
+            ```
+
+            ...
+            path('create-food-ajax/', add_food_ajax, name='add_food_ajax'),
+
+
+            ```
+
+   - #####  Lakukan refresh pada halaman utama secara asinkronus untuk menampilkan daftar item terbaru tanpa reload halaman utama secara keseluruhan.
+
+         ![](image-7.png)
+
+
+
+
+
 
 
 

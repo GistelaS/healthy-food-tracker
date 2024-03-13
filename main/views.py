@@ -12,6 +12,7 @@ from django.core import serializers
 from django.shortcuts import render, redirect   # Tambahkan import redirect di baris ini
 from main.forms import FoodForm
 from main.models import Food
+from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
 @login_required(login_url='/login')
@@ -104,3 +105,18 @@ def delete_food(request, id):
     food.delete()
     # Kembali ke halaman awal
     return HttpResponseRedirect(reverse('main:show_main'))
+
+@csrf_exempt
+def add_food_ajax(request):
+    if request.method == 'POST':
+        name = request.POST.get("name")
+        calories = request.POST.get("calories")
+        description = request.POST.get("description")
+        user = request.user
+
+        new_food = Food(name=name, calories=calories, description=description, user=user)
+        new_food.save()
+
+        return HttpResponse(b"CREATED", status=201)
+
+    return HttpResponseNotFound()
