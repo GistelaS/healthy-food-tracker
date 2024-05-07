@@ -139,7 +139,7 @@ D. Jelaskan apakah itu MVC, MVT, MVVM dan perbedaan dari ketiganya.
 
    1.	Isolasi Dependensi Virtual environment dapat memeberi pengguna untuk memiliki beberapa versi python dikomputernya tanpa bentrok. Di tiap versi bisa dianggap sebagai lingkungan pengembangan yang terpisah. Dan juga pengguna dapat menginstal versi berbeda dari pustaka dan modul python secara terisolasi. Penting adanya karena dapat memberikan kemungkinan untuk terhindar dari konfil antara versi di berbagai pekerjaan proyek pengguna.
 
-   2.	Kepatuahn Versi 
+   2.	Kepatuahan Versi 
     Virtual environment memberikan kemungkinan para pengguna dalam menentukan dan mengelola versi yang tepat dari Django dan dependensinya untuk di berbagai proyek. Dapat memastikan untuk proyek pengguna pasti kompatibel dengan versi yang digunakan saat pengembangan, walaupun nantinya pengguna ingin mengupgrade Django ataupun pustaka lain untuk berbagai proyek.
 
    3.	Kebersihan dan Keamanan
@@ -184,7 +184,7 @@ D. Jelaskan apakah itu MVC, MVT, MVVM dan perbedaan dari ketiganya.
    a. Form POST
    
    1.  Dalam penampungan data atau nilai yang dikirimkan memakai variabel request.POST
-   2. Pemakaian form POST lebih baik digunakan untuk oengiriman daya yang rahasia, file, memiliki teks yang panjang bahakan data yang lebih besar atau lebih kompleks
+   2. Pemakaian form POST lebih baik digunakan untuk pengiriman daya yang rahasia, file, memiliki teks yang panjang bahakan data yang lebih besar atau lebih kompleks
    3. Form POST tidak perlu menampilkan URL tetapi dapat mengirimkan data langsung ke action
 
    b. Form GET
@@ -193,7 +193,7 @@ D. Jelaskan apakah itu MVC, MVT, MVVM dan perbedaan dari ketiganya.
    2. Berbeda dengan form POST, form GET menunjukkan data atau nilai ada pada URL setelah itu menampungnya dengan action
    3. Kalau untuk cakupan parameter tertentu yang dalam pembagian URl atau untuk penggunaan permintaan pencarian form GET lah yang cocok digunakan
 
-   Dengan kesimpulan form GET untuk yang ingin dalma pembagian URL, pemunculan data pada URL atau permintaan pencarian dan form POST penggunaan dalam pengiriman data yang besar dan kompleks yang dikirim secara langsung.
+   Dengan kesimpulan form GET untuk yang ingin dalam pembagian URL, pemunculan data pada URL atau permintaan pencarian dan form POST penggunaan dalam pengiriman data yang besar dan kompleks yang dikirim secara langsung.
 
 - ### Apa perbedaan utama antara XML, JSON, dan HTML dalam konteks pengiriman data?
 
@@ -1038,7 +1038,7 @@ lalu langkah selanjutnya ada di tangkapan layar berikut :
 
 - ### Pada PBP kali ini, penerapan AJAX dilakukan dengan menggunakan Fetch API daripada library jQuery. Bandingkanlah kedua teknologi tersebut dan tuliskan pendapat kamu teknologi manakah yang lebih baik untuk digunakan.
 
-   Fetch API dan jQuery AJAX adalah dua pendekatan yang berbeda untuk mengakses data secara asinkrn dari server. Perbandingan keduanya adalah dimana Fetch API memiliki kelebihan seperti Fetch API adalah bagian dari JavaScript modern dan didukung oleh sebagian besar browser. Promised-Based dimana promise membuat respons yang asinkron sehingga lebih mudah dimengerti dan dibaca. Fetch API bersifat ringan dimana tidak diperlukannya library eksternal seperti jQuery. Dan juga bersifat fleksibel yang memungkinkan dalam mengirim permintaan dengan cara yang berbeda seperti Get, Post, dll. sehingga dapat mengatur header lebih mudah. Dan untuk kekurangannya yaitu kurangnya dukungan di IE, yang dimana tanpa polyfill maka tidak akan berfungsi di Internet Explorer (IE) dan juga adanya fungsi yang hilang yang ada di jQuery AJAX tidak ada pada Fetch API.
+   Fetch API dan jQuery AJAX adalah dua pendekatan yang berbeda untuk mengakses data secara asinkron dari server. Perbandingan keduanya adalah dimana Fetch API memiliki kelebihan seperti Fetch API adalah bagian dari JavaScript modern dan didukung oleh sebagian besar browser. Promised-Based dimana promise membuat respons yang asinkron sehingga lebih mudah dimengerti dan dibaca. Fetch API bersifat ringan dimana tidak diperlukannya library eksternal seperti jQuery. Dan juga bersifat fleksibel yang memungkinkan dalam mengirim permintaan dengan cara yang berbeda seperti Get, Post, dll. sehingga dapat mengatur header lebih mudah. Dan untuk kekurangannya yaitu kurangnya dukungan di IE, yang dimana tanpa polyfill maka tidak akan berfungsi di Internet Explorer (IE) dan juga adanya fungsi yang hilang yang ada di jQuery AJAX tidak ada pada Fetch API.
 
    Dan untuk keuntungan pada jQuery AJAX adalah akses yang luas dimana kita dapat menjalankan hampir disemua browser, bahkan browser lama. Penggunaan yang sederhana dimana cukup mudah dalam pemakaiannya dengan fitur yang cukup lengkap. Dapat melakukan permintaan lintas domain dengan mudah juga. Tentunya juga mempunya kekurangan dimana membutuhkan library eksternal atau jQuery yang meningkatkan ukuran aplikasi sehingga berat. Dan juga menggunakan panggilan baik yang mengakibatkan kode akan lebih sulit untuk dibaca dan kompleks.
 

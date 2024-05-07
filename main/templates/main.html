@@ -65,7 +65,7 @@
                   </div>
                   <div class="mb-3">
                       <label for="calories" class="col-form-label">Calories:</label>
-                      <input type="number" class="form-control" id="page" name="page"></input>
+                      <input type="number" class="form-control" id="calories" name="calories"></input>
                   </div>
                   <div class="mb-3">
                       <label for="description" class="col-form-label">Description:</label>
@@ -115,7 +115,7 @@ Add Food by AJAX
         document.getElementById("food_table").innerHTML = htmlString
     }
 
-    refreshFoods()
+    
     function addFood() {
         fetch("{% url 'main:add_food_ajax' %}", {
             method: "POST",
@@ -126,6 +126,7 @@ Add Food by AJAX
         return false
     }
     document.getElementById("button_add").onclick = addFood
+    refreshFoods()
 
 </script>
 
