@@ -13,6 +13,8 @@ from django.shortcuts import render, redirect   # Tambahkan import redirect di b
 from main.forms import FoodForm
 from main.models import Food
 from django.views.decorators.csrf import csrf_exempt
+import json
+from django.http import JsonResponse
 
 # Create your views here.
 @login_required(login_url='/login')
@@ -120,3 +122,22 @@ def add_food_ajax(request):
         return HttpResponse(b"CREATED", status=201)
 
     return HttpResponseNotFound()
+
+@csrf_exempt
+def create_flutter(request):
+    if request.method == 'POST':
+
+        data = json.loads(request.body)
+
+        new_food = Food.objects.create(
+            user = request.user,
+            name = data["food"],
+            calories = int(data["calories"]),
+            description = data["description"]
+        )
+
+        new_food.save()
+
+        return JsonResponse({"status": "success"}, status=200)
+    else:
+        return JsonResponse({"status": "error"}, status=401)
